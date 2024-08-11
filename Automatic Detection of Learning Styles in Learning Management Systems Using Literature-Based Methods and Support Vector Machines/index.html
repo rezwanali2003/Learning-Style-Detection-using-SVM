@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Style Detector</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Learning Style Detector</h1>
+        <p class="text-muted text-center">Understand your learning style and optimize your study approach.</p>
+
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="read_chalkboard">Read Chalkboard (1-5):</label>
+                <input type="number" class="form-control" id="read_chalkboard" name="read_chalkboard" min="1" max="5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="read_instructions">Read Instructions (1-5):</label>
+                <input type="number" class="form-control" id="read_instructions" name="read_instructions" min="1" max="5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="understand_read_instructions">Understand Read Instructions (1-5):</label>
+                <input type="number" class="form-control" id="understand_read_instructions" name="understand_read_instructions" min="1" max="5" required>
+            </div>
+
+            <!-- Add other form fields for learning preferences -->
+
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2 class="text-center">Learning Style Suggestion:</h2>
+                <p class="text-center">{{ prediction }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
